@@ -295,9 +295,6 @@ class _DataAState extends State<DataA> {
                                 fontFamily: 'ProductSans'
                             )),
                       ),
-                      SizedBox(
-                        //width: displayWidth(context)*0.17,
-                      ),
                       Padding(
                         padding: const EdgeInsets.only(right:10.0),
                         child: RichText(text: TextSpan(
@@ -336,13 +333,13 @@ class _DataAState extends State<DataA> {
               title: Text("home", style: TextStyle(color: Colors.white),)),
           BottomNavigationBarItem(icon: Icon(Icons.account_balance),
               backgroundColor: Colors.lightGreen,
-              title: Text("home", style: TextStyle(color: Colors.white),)),
+              title: Text("Account", style: TextStyle(color: Colors.white),)),
           BottomNavigationBarItem(icon: Icon(Icons.compare_arrows_sharp),
               backgroundColor: Colors.lightGreen,
-              title: Text("home", style: TextStyle(color: Colors.white),)),
+              title: Text("Transection", style: TextStyle(color: Colors.white),)),
           BottomNavigationBarItem(icon: Icon(Icons.settings),
               backgroundColor: Colors.lightGreen,
-              title: Text("home", style: TextStyle(color: Colors.white),)),
+              title: Text("Setting", style: TextStyle(color: Colors.white),)),
         ],
       ),
     );

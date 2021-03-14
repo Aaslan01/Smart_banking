@@ -4,13 +4,15 @@ import 'package:login/FadeAnimation.dart';
 import 'package:flutter/material.dart';
 import 'ForgetPassword.dart';
 import 'Front.dart';
-import 'Accounts.dart';
+import 'settings.dart';
+
+
 
 void main() => runApp(
   MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData.light(),
-    home: Accounts(),
+    home: Homepage(),
   )
 );
 
