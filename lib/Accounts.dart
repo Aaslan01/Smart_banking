@@ -1,7 +1,8 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:login/ScreenSize.dart';
+
+
 class Accounts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -111,9 +112,7 @@ class _DataAState extends State<DataA> {
                                 fontFamily: 'ProductSans'
                             )),
                       ),
-                      SizedBox(
-                        //width: displayWidth(context)*0.17,
-                      ),
+
                       Padding(
                         padding: const EdgeInsets.only(right:10.0),
                         child: RichText(text: TextSpan(

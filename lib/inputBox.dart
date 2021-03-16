@@ -93,7 +93,7 @@ class _SimpleInputState extends State<SimpleInput> {
                 hintText: widget.inputHint,
                 hintStyle: TextStyle(
                   fontSize: 19,
-                  color: Colors.grey[350],
+                  color: Colors.black38,
                   fontWeight: FontWeight.w600,
                 ),
                 contentPadding: EdgeInsets.symmetric(vertical: 27, horizontal: 25),
