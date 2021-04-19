@@ -1,0 +1,1980 @@
+Index: lib/settings.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/settings.dart	(revision 29dc20d5cc629554837d2ac732341a170ab31954)
++++ lib/settings.dart	(date 1618741912112)
+@@ -49,8 +49,6 @@
+                 buildContainer(nameSetting: 'About',
+                   IconD: Icons.account_balance_outlined),
+ 
+-
+-
+               ],
+             )
+           ],
+Index: lib/Expenditures.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/Expenditures.dart	(revision 29dc20d5cc629554837d2ac732341a170ab31954)
++++ lib/Expenditures.dart	(date 1618780412004)
+@@ -26,13 +26,7 @@
+         backgroundColor: Colors.white38,
+         title: Padding(
+           padding: const EdgeInsets.only(left:19.0),
+-          child: Text('Monthly Expenditures List',
+-            style: TextStyle(
+-                color: Color(0xFF0C2551),
+-                fontFamily: 'ProductSans',
+-                fontWeight: FontWeight.bold,
+-                fontSize: 25,
+-            ),),
++          child: text1(label:'Monthly Expenditures List',colour:Color(0xFF0C2551),fontF:'ProductSans',size: 25),
+         ),
+       ),
+       body: SingleChildScrollView(
+@@ -47,13 +41,8 @@
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left:10.0),
+-                     child: Text('Total Expenditures',
+-                         style: TextStyle(
+-                             fontSize: 25,
+-                             color: Color(0xff0962ff),
+-                             fontWeight: FontWeight.bold,
+-                             fontFamily: 'ProductSans'
+-                         )),
++                     child: text1(label: 'Total Expenditures', colour: Color(0xff0962ff), fontF: 'ProductSans', wei: FontWeight.bold, size: 25)
++
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right:10.0),
+@@ -79,383 +68,124 @@
+                    ),
+                  ],
+                ),
+-                Container(
+-                  padding: EdgeInsets.all(10),
+-                  margin: EdgeInsets.only(top:10),
+-                  height: displayHeight(context)*0.15,
+-                  width: displayWidth(context)*0.9,
+-                  decoration: BoxDecoration(
+-                    borderRadius: BorderRadius.circular(10),
+-                    color: Colors.black12,
+-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
+-                    // fit: BoxFit.cover)
+-                  ),
+-                  child: Row(
+-                    children: [
+-                      Expanded(
+-                        flex: 1,
+-                          child: Icon(
+-                            Icons.home,
+-                            size: 40,
+-                          ),
+-                      ),
+-                      Expanded(
+-                          flex: 2,
+-                          child: Container(
+-                            child: Text('House',
+-                            style: TextStyle(
+-                              fontSize: 30,
+-                              fontFamily: 'ProductSans',
+-                              fontWeight: FontWeight.bold,
+-                            ),),
+-                          )),
++                ExpenditureCon(icon: Icons.home,Tlabel: "House",span2: "1,07,000",),
++                ExpenditureCon(icon:  Icons.shopping_bag,Tlabel: 'Shopping',span2: "22,455",),
++                ExpenditureCon(icon:  Icons.local_grocery_store,Tlabel: 'Grocery',span2: "23,000",),
++                ExpenditureCon(icon: Icons.emoji_transportation,Tlabel: 'Transport',span2: "12,000",),
++                ExpenditureCon(icon: Icons.list_alt_outlined,Tlabel: 'Bills',span2: "97,000",),
++                ExpenditureCon(icon:  Icons.fact_check_outlined,Tlabel: 'Others',span2: "12,000",),
++              ],
++            )
++          ],
++        ),
++      ),
++      bottomNavigationBar: BottomNavigationBar(
++        backgroundColor: Colors.white,
++        items: [
++          BottomNavigationBarItem(icon: Icon(Icons.home),
++              backgroundColor: Colors.lightGreen,
++              title: Text("home", style: TextStyle(color: Colors.white),)),
++          BottomNavigationBarItem(icon: Icon(Icons.account_balance),
++              backgroundColor: Colors.lightGreen,
++              title: Text("Account", style: TextStyle(color: Colors.white),)),
++          BottomNavigationBarItem(icon: Icon(Icons.compare_arrows_sharp),
++              backgroundColor: Colors.lightGreen,
++              title: Text("Transection", style: TextStyle(color: Colors.white),)),
++          BottomNavigationBarItem(icon: Icon(Icons.settings),
++              backgroundColor: Colors.lightGreen,
++              title: Text("Setting", style: TextStyle(color: Colors.white),)),
++        ],
++      ),
++    );
++  }
++}
++
++class ExpenditureCon extends StatelessWidget {
++
++  ExpenditureCon({@required this.icon,@required this.Tlabel, @required this.span2});
++  final IconData icon;
++  final String Tlabel;
++  final String span2;
++
++  @override
++  Widget build(BuildContext context) {
++    return Container(
++      padding: EdgeInsets.all(10),
++      margin: EdgeInsets.only(top:10),
++      height: displayHeight(context)*0.15,
++      width: displayWidth(context)*0.9,
++      decoration: BoxDecoration(
++        borderRadius: BorderRadius.circular(10),
++        color: Colors.black12,
++        // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
++        // fit: BoxFit.cover)
++      ),
++      child: Row(
++        children: [
++          Expanded(
++            flex: 1,
++              child: Icon(
++                icon,
++                size: 40,
++              ),
++          ),
++          Expanded(
++              flex: 3,
++              child: Container(
++                child: text1(label: Tlabel, colour: null, fontF: 'ProductSans', wei: FontWeight.bold, size: 30)
++
++              )),
+ 
+-                      Expanded(
+-                          flex: 2,
+-                          child: Padding(
+-                            padding: const EdgeInsets.only(left:15.0),
+-                            child: RichText(text: TextSpan(
+-                                children: [
+-                                  TextSpan(text: "Rs. ",
+-                                      style: TextStyle(
+-                                        fontFamily: 'ProductSans',
+-                                        fontSize: 20,
+-                                        color: Colors.black,
+-                                      )
+-                                  ),
+-                                  TextSpan(text: "1,07,000",
+-                                      style: TextStyle(
+-                                        fontFamily: 'ProductSans',
+-                                        fontSize: 23,
+-                                        color: Colors.black,
+-                                      )
+-                                  ),
+-                                ]
+-                            ),
+-                            ),
+-                          ),
+-                      ),
+-                    ],
+-                  ),
+-                ),
+-                Container(
+-                  padding: EdgeInsets.all(10),
+-                  margin: EdgeInsets.only(top:10),
+-                  height: displayHeight(context)*0.15,
+-                  width: displayWidth(context)*0.9,
+-                  decoration: BoxDecoration(
+-                    borderRadius: BorderRadius.circular(10),
+-                    color: Colors.black12,
+-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
+-                    // fit: BoxFit.cover)
+-                  ),
+-                  child: Row(
+-                    children: [
+-                      Expanded(
+-                        flex: 1,
+-                        child: Icon(
+-                          Icons.shopping_bag,
+-                          size: 40,
+-                        ),
+-                      ),
+-                      Expanded(
+-                          flex: 2,
+-                          child: Container(
+-                            child: Text('Shopping',
+-                              style: TextStyle(
+-                                fontSize: 30,
+-                                fontFamily: 'ProductSans',
+-                                fontWeight: FontWeight.bold,
+-                              ),),
+-                          )),
+-
+-                      Expanded(
+-                        flex: 2,
+-                        child: Padding(
+-                          padding: const EdgeInsets.only(left:15.0),
+-                          child: RichText(text: TextSpan(
+-                              children: [
+-                                TextSpan(text: "Rs. ",
+-                                    style: TextStyle(
+-                                      fontFamily: 'ProductSans',
+-                                      fontSize: 20,
+-                                      color: Colors.black,
+-                                    )
+-                                ),
+-                                TextSpan(text: "22,455",
+-                                    style: TextStyle(
+-                                      fontFamily: 'ProductSans',
+-                                      fontSize: 23,
+-                                      color: Colors.black,
+-                                    )
+-                                ),
+-                              ]
+-                          ),
+-                          ),
+-                        ),
+-                      ),
+-                    ],
+-                  ),
+-                ),
+-                Container(
+-                  padding: EdgeInsets.all(10),
+-                  margin: EdgeInsets.only(top:10),
+-                  height: displayHeight(context)*0.15,
+-                  width: displayWidth(context)*0.9,
+-                  decoration: BoxDecoration(
+-                    borderRadius: BorderRadius.circular(10),
+-                    color: Colors.black12,
+-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
+-                    // fit: BoxFit.cover)
+-                  ),
+-                  child: Row(
+-                    children: [
+-                      Expanded(
+-                        flex: 1,
+-                        child: Icon(
+-                          Icons.local_grocery_store,
+-                          size: 40,
+-                        ),
+-                      ),
+-                      Expanded(
+-                          flex: 2,
+-                          child: Container(
+-                            child: Text('Grocery',
+-                              style: TextStyle(
+-                                fontSize: 30,
+-                                fontFamily: 'ProductSans',
+-                                fontWeight: FontWeight.bold,
+-                              ),),
+-                          )),
+-
+-                      Expanded(
+-                        flex: 2,
+-                        child: Padding(
+-                          padding: const EdgeInsets.only(left:15.0),
+-                          child: RichText(text: TextSpan(
+-                              children: [
+-                                TextSpan(text: "Rs. ",
+-                                    style: TextStyle(
+-                                      fontFamily: 'ProductSans',
+-                                      fontSize: 20,
+-                                      color: Colors.black,
+-                                    )
+-                                ),
+-                                TextSpan(text: "23,000",
+-                                    style: TextStyle(
+-                                      fontFamily: 'ProductSans',
+-                                      fontSize: 23,
+-                                      color: Colors.black,
+-                                    )
+-                                ),
+-                              ]
+-                          ),
+-                          ),
+-                        ),
+-                      ),
+-                    ],
+-                  ),
+-                ),
+-                Container(
+-                  padding: EdgeInsets.all(10),
+-                  margin: EdgeInsets.only(top:10),
+-                  height: displayHeight(context)*0.15,
+-                  width: displayWidth(context)*0.9,
+-                  decoration: BoxDecoration(
+-                    borderRadius: BorderRadius.circular(10),
+-                    color: Colors.black12,
+-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
+-                    // fit: BoxFit.cover)
+-                  ),
+-                  child: Row(
+-                    children: [
+-                      Expanded(
+-                        flex: 1,
+-                        child: Icon(
+-                          Icons.emoji_transportation,
+-                          size: 40,
+-                        ),
+-                      ),
+-                      Expanded(
+-                          flex: 2,
+-                          child: Container(
+-                            child: Text('Transport',
+-                              style: TextStyle(
+-                                fontSize: 30,
+-                                fontFamily: 'ProductSans',
+-                                fontWeight: FontWeight.bold,
+-                              ),),
+-                          )),
+-
+-                      Expanded(
+-                        flex: 2,
+-                        child: Padding(
+-                          padding: const EdgeInsets.only(left:15.0),
+-                          child: RichText(text: TextSpan(
+-                              children: [
+-                                TextSpan(text: "Rs. ",
+-                                    style: TextStyle(
+-                                      fontFamily: 'ProductSans',
+-                                      fontSize: 20,
+-                                      color: Colors.black,
+-                                    )
+-                                ),
+-                                TextSpan(text: "12,000",
+-                                    style: TextStyle(
+-                                      fontFamily: 'ProductSans',
+-                                      fontSize: 23,
+-                                      color: Colors.black,
+-                                    )
+-                                ),
+-                              ]
+-                          ),
+-                          ),
+-                        ),
+-                      ),
+-                    ],
+-                  ),
+-                ),
+-                Container(
+-                  padding: EdgeInsets.all(10),
+-                  margin: EdgeInsets.only(top:10),
+-                  height: displayHeight(context)*0.15,
+-                  width: displayWidth(context)*0.9,
+-                  decoration: BoxDecoration(
+-                    borderRadius: BorderRadius.circular(10),
+-                    color: Colors.black12,
+-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
+-                    // fit: BoxFit.cover)
+-                  ),
+-                  child: Row(
+-                    children: [
+-                      Expanded(
+-                        flex: 1,
+-                        child: Icon(
+-                          Icons.list_alt_outlined,
+-                          size: 40,
+-                        ),
+-                      ),
+-                      Expanded(
+-                          flex: 2,
+-                          child: Container(
+-                            child: Text('Bills',
+-                              style: TextStyle(
+-                                fontSize: 30,
+-                                fontFamily: 'ProductSans',
+-                                fontWeight: FontWeight.bold,
+-                              ),),
+-                          )),
+-
+-                      Expanded(
+-                        flex: 2,
+-                        child: Padding(
+-                          padding: const EdgeInsets.only(left:15.0),
+-                          child: RichText(text: TextSpan(
+-                              children: [
+-                                TextSpan(text: "Rs. ",
+-                                    style: TextStyle(
+-                                      fontFamily: 'ProductSans',
+-                                      fontSize: 20,
+-                                      color: Colors.black,
+-                                    )
+-                                ),
+-                                TextSpan(text: "97,000",
+-                                    style: TextStyle(
+-                                      fontFamily: 'ProductSans',
+-                                      fontSize: 23,
+-                                      color: Colors.black,
+-                                    )
+-                                ),
+-                              ]
+-                          ),
+-                          ),
+-                        ),
+-                      ),
+-                    ],
+-                  ),
+-                ),
+-                Container(
+-                  padding: EdgeInsets.all(10),
+-                  margin: EdgeInsets.only(top:10),
+-                  height: displayHeight(context)*0.15,
+-                  width: displayWidth(context)*0.9,
+-                  decoration: BoxDecoration(
+-                    borderRadius: BorderRadius.circular(10),
+-                    color: Colors.black12,
+-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
+-                    // fit: BoxFit.cover)
+-                  ),
+-                  child: Row(
+-                    children: [
+-                      Expanded(
+-                        flex: 1,
+-                        child: Icon(
+-                          Icons.fact_check_outlined,
+-                          size: 40,
+-                        ),
+-                      ),
+-                      Expanded(
+-                          flex: 2,
+-                          child: Container(
+-                            child: Text('Others',
+-                              style: TextStyle(
+-                                fontSize: 30,
+-                                fontFamily: 'ProductSans',
+-                                fontWeight: FontWeight.bold,
+-                              ),),
+-                          )),
+-
+-                      Expanded(
+-                        flex: 2,
+-                        child: Padding(
+-                          padding: const EdgeInsets.only(right:10.0),
+-                          child: RichText(text: TextSpan(
+-                              children: [
+-                                TextSpan(text: "Rs. ",
+-                                    style: TextStyle(
+-                                      fontFamily: 'ProductSans',
+-                                      fontSize: 20,
+-                                      color: Colors.black,
+-                                    )
+-                                ),
+-                                TextSpan(text: "12,000",
+-                                    style: TextStyle(
+-                                      fontFamily: 'ProductSans',
+-                                      fontSize: 23,
+-                                      color: Colors.black,
+-                                    )
+-                                ),
+-                              ]
+-                          ),
+-                          ),
+-                        ),
+-                      ),
+-                    ],
+-                  ),
+-                ),
+-              ],
+-            )
+-          ],
+-        ),
+-      ),
+-      bottomNavigationBar: BottomNavigationBar(
+-        backgroundColor: Colors.white,
+-        items: [
+-          BottomNavigationBarItem(icon: Icon(Icons.home),
+-              backgroundColor: Colors.lightGreen,
+-              title: Text("home", style: TextStyle(color: Colors.white),)),
+-          BottomNavigationBarItem(icon: Icon(Icons.account_balance),
+-              backgroundColor: Colors.lightGreen,
+-              title: Text("Account", style: TextStyle(color: Colors.white),)),
+-          BottomNavigationBarItem(icon: Icon(Icons.compare_arrows_sharp),
+-              backgroundColor: Colors.lightGreen,
+-              title: Text("Transection", style: TextStyle(color: Colors.white),)),
+-          BottomNavigationBarItem(icon: Icon(Icons.settings),
+-              backgroundColor: Colors.lightGreen,
+-              title: Text("Setting", style: TextStyle(color: Colors.white),)),
+-        ],
+-      ),
+-    );
++          Expanded(
++              flex: 3,
++              child: Padding(
++                padding: const EdgeInsets.only(left:15.0),
++                child: RichText(text: TextSpan(
++                    children: [
++                      TextSpan(text: "Rs. ",
++                          style: TextStyle(
++                            fontFamily: 'ProductSans',
++                            fontSize: 20,
++                            color: Colors.black,
++                          )
++                      ),
++                      TextSpan(text: span2,
++                          style: TextStyle(
++                            fontFamily: 'ProductSans',
++                            fontSize: 23,
++                            color: Colors.black,
++                          )
++                      ),
++                    ]
++                ),
++                ),
++              ),
++          ),
++        ],
++      ),
++    );
++  }
++}
++
++
++class text1 extends StatelessWidget {
++
++  text1({@required this.label , @required this.colour, @required this.fontF,@required this.wei, @required this.size});
++
++  final String label;
++  final Color colour;
++  final String fontF;
++  final FontWeight wei;
++  final double size;
++
++  @override
++  Widget build(BuildContext context) {
++    return Text(label,
++      style: TextStyle(
++        color: colour,
++        fontFamily: fontF,
++        fontWeight: wei,
++        fontSize: size,
++      ),);
+   }
+ }
+-
+Index: lib/Accounts.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/Accounts.dart	(revision 29dc20d5cc629554837d2ac732341a170ab31954)
++++ lib/Accounts.dart	(date 1618752425860)
+@@ -27,13 +27,8 @@
+         backgroundColor: Colors.white38,
+         title: Padding(
+           padding: const EdgeInsets.only(left: 23.0),
+-          child: Text('Accounts',
+-            style: TextStyle(
+-                color: Color(0xFF0C2551),
+-                fontFamily: 'ProductSans',
+-                fontWeight: FontWeight.bold,
+-                fontSize: 25
+-            ),),
++          child: text1(label:"Accounts",colour: Color(0xFF0C2551),  fontF: 'ProductSans', wei: FontWeight.bold,size:  25,
++          ),
+         ),
+         actions: <Widget>[
+           IconButton(
+@@ -90,153 +85,11 @@
+                     ],
+                   ),
+                 ),
+-                Container(
+-                  height: displayHeight(context)*0.15,
+-                  width: displayWidth(context)*0.9,
+-                  decoration: BoxDecoration(
+-                    borderRadius: BorderRadius.circular(10),
+-                    color: Colors.black12,
+-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
+-                    // fit: BoxFit.cover)
+-                  ),
+-                  child: Row(
+-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+-                    children: [
+-                      Padding(
+-                        padding: const EdgeInsets.only(left:10.0),
+-                        child: Text('Bank AlFalah',
+-                            style: TextStyle(
+-                                fontSize: 25,
+-                                color: Color(0xff0962ff),
+-                                fontWeight: FontWeight.bold,
+-                                fontFamily: 'ProductSans'
+-                            )),
+-                      ),
+-
+-                      Padding(
+-                        padding: const EdgeInsets.only(right:10.0),
+-                        child: RichText(text: TextSpan(
+-                            children: [
+-                              TextSpan(text: "Rs. ",
+-                                  style: TextStyle(
+-                                    fontFamily: 'ProductSans',
+-                                    fontSize: 20,
+-                                    color: Colors.black,
+-                                  )
+-                              ),
+-                              TextSpan(text: "7,290",
+-                                  style: TextStyle(
+-                                    fontFamily: 'ProductSans',
+-                                    fontSize: 20,
+-                                    color: Colors.black,
+-                                  )
+-                              ),
+-                            ]
+-                        ),
+-                        ),
+-                      ),
+-                    ],
+-                  ),
+-                  ),
++                Cont1(bankN: 'Bank AlFalah', span2: "7,290"),
+                 SizedBox(height: 10,),
+-                Container(
+-                  height: displayHeight(context)*0.15,
+-                  width: displayWidth(context)*0.9,
+-                  decoration: BoxDecoration(
+-                    borderRadius: BorderRadius.circular(10),
+-                    color: Colors.black12,
+-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
+-                    // fit: BoxFit.cover)
+-                  ),
+-                  child: Row(
+-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+-                    children: [
+-                      Padding(
+-                        padding: const EdgeInsets.only(left:10.0),
+-                        child: Text('MCB',
+-                            style: TextStyle(
+-                                fontSize: 25,
+-                                color: Color(0xff0962ff),
+-                                fontWeight: FontWeight.bold,
+-                                fontFamily: 'ProductSans'
+-                            )),
+-                      ),
+-                      Padding(
+-                        padding: const EdgeInsets.only(right:10.0),
+-                        child: RichText(text: TextSpan(
+-                            children: [
+-                              TextSpan(text: "Rs. ",
+-                                  style: TextStyle(
+-                                    fontFamily: 'ProductSans',
+-                                    fontSize: 20,
+-                                    color: Colors.black,
+-                                  )
+-                              ),
+-                              TextSpan(text: "290",
+-                                  style: TextStyle(
+-                                    fontFamily: 'ProductSans',
+-                                    fontSize: 20,
+-                                    color: Colors.black,
+-                                  )
+-                              ),
+-                            ]
+-                        ),
+-                        ),
+-                      ),
+-                    ],
+-                  ),
+-                ),
++                Cont1(bankN: 'MCB', span2: "280"),
+                 SizedBox(height: 10,),
+-                Container(
+-                  height: displayHeight(context)*0.15,
+-                  width: displayWidth(context)*0.9,
+-                  decoration: BoxDecoration(
+-                    borderRadius: BorderRadius.circular(10),
+-                    color: Colors.black12,
+-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
+-                    // fit: BoxFit.cover)
+-                  ),
+-                  child: Row(
+-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+-                    children: [
+-                      Padding(
+-                        padding: const EdgeInsets.only(left:10.0),
+-                        child: Text('HBL',
+-                            style: TextStyle(
+-                                fontSize: 25,
+-                                color: Color(0xff0962ff),
+-                                fontWeight: FontWeight.bold,
+-                                fontFamily: 'ProductSans'
+-                            )),
+-                      ),
+-                      SizedBox(
+-                        //width: displayWidth(context)*0.17,
+-                      ),
+-                      Padding(
+-                        padding: const EdgeInsets.only(right:10.0),
+-                        child: RichText(text: TextSpan(
+-                            children: [
+-                              TextSpan(text: "Rs. ",
+-                                  style: TextStyle(
+-                                    fontFamily: 'ProductSans',
+-                                    fontSize: 20,
+-                                    color: Colors.black,
+-                                  )
+-                              ),
+-                              TextSpan(text: "990",
+-                                  style: TextStyle(
+-                                    fontFamily: 'ProductSans',
+-                                    fontSize: 20,
+-                                    color: Colors.black,
+-                                  )
+-                              ),
+-                            ]
+-                        ),
+-                        ),
+-                      ),
+-                    ],
+-                  ),
+-                ),
++                Cont1(bankN: 'HBL', span2: "990"),
+                 Padding(
+                   padding: const EdgeInsets.only(left:15.0, top: 25,right: 15,bottom:15 ),
+                   child: Row(
+@@ -272,75 +125,102 @@
+                   ),
+                 ),
+                 SizedBox(height: 10,),
+-                Container(
+-                  height: displayHeight(context)*0.15,
+-                  width: displayWidth(context)*0.9,
+-                  decoration: BoxDecoration(
+-                    borderRadius: BorderRadius.circular(10),
+-                    color: Colors.black12,
+-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
+-                    // fit: BoxFit.cover)
+-                  ),
+-                  child: Row(
+-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+-                    children: [
+-                      Padding(
+-                        padding: const EdgeInsets.only(left:10.0),
+-                        child: Text('PayPal',
+-                            style: TextStyle(
+-                                fontSize: 25,
+-                                color: Color(0xff0962ff),
+-                                fontWeight: FontWeight.bold,
+-                                fontFamily: 'ProductSans'
+-                            )),
+-                      ),
+-                      Padding(
+-                        padding: const EdgeInsets.only(right:10.0),
+-                        child: RichText(text: TextSpan(
+-                            children: [
+-                              TextSpan(text: "Rs. ",
+-                                  style: TextStyle(
+-                                    fontFamily: 'ProductSans',
+-                                    fontSize: 20,
+-                                    color: Colors.black,
+-                                  )
+-                              ),
+-                              TextSpan(text: "23,780",
+-                                  style: TextStyle(
+-                                    fontFamily: 'ProductSans',
+-                                    fontSize: 20,
+-                                    color: Colors.black,
+-                                  )
+-                              ),
+-                            ]
+-                        ),
+-                        ),
+-                      ),
+-                    ],
+-                  ),
+-                ),
+-              ],
+-            )
+-          ],
+-        ),
+-      ),
+-      bottomNavigationBar: BottomNavigationBar(
+-        backgroundColor: Colors.white,
+-        items: [
+-          BottomNavigationBarItem(icon: Icon(Icons.home),
+-              backgroundColor: Colors.lightGreen,
+-              title: Text("home", style: TextStyle(color: Colors.white),)),
+-          BottomNavigationBarItem(icon: Icon(Icons.account_balance),
+-              backgroundColor: Colors.lightGreen,
+-              title: Text("Account", style: TextStyle(color: Colors.white),)),
+-          BottomNavigationBarItem(icon: Icon(Icons.compare_arrows_sharp),
+-              backgroundColor: Colors.lightGreen,
+-              title: Text("Transection", style: TextStyle(color: Colors.white),)),
+-          BottomNavigationBarItem(icon: Icon(Icons.settings),
+-              backgroundColor: Colors.lightGreen,
+-              title: Text("Setting", style: TextStyle(color: Colors.white),)),
+-        ],
+-      ),
+-    );
++                Cont1(bankN: 'PayPal', span2: "23,788"),
++              ],
++            )
++          ],
++        ),
++      ),
++      bottomNavigationBar: BottomNavigationBar(
++        backgroundColor: Colors.white,
++        items: [
++          BottomNavigationBarItem(icon: Icon(Icons.home),
++              backgroundColor: Colors.lightGreen,
++              title: Text("home", style: TextStyle(color: Colors.white),)),
++          BottomNavigationBarItem(icon: Icon(Icons.account_balance),
++              backgroundColor: Colors.lightGreen,
++              title: Text("Account", style: TextStyle(color: Colors.white),)),
++          BottomNavigationBarItem(icon: Icon(Icons.compare_arrows_sharp),
++              backgroundColor: Colors.lightGreen,
++              title: Text("Transection", style: TextStyle(color: Colors.white),)),
++          BottomNavigationBarItem(icon: Icon(Icons.settings),
++              backgroundColor: Colors.lightGreen,
++              title: Text("Setting", style: TextStyle(color: Colors.white),)),
++        ],
++      ),
++    );
++  }
++}
++
++const spanStyle = TextStyle(
++  fontFamily: 'ProductSans',
++  fontSize: 20,
++  color: Colors.black,
++);
++class Cont1 extends StatelessWidget {
++
++  Cont1({@required this.bankN,@required this.span2});
++  final String bankN;
++  final String span2;
++
++  @override
++  Widget build(BuildContext context) {
++    return Container(
++      height: displayHeight(context)*0.15,
++      width: displayWidth(context)*0.9,
++      decoration: BoxDecoration(
++        borderRadius: BorderRadius.circular(10),
++        color: Colors.black12,
++        // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
++        // fit: BoxFit.cover)
++      ),
++      child: Row(
++        mainAxisAlignment: MainAxisAlignment.spaceBetween,
++        children: [
++          Padding(
++            padding: const EdgeInsets.only(left:10.0),
++            child: text1(label: bankN, colour: Color(0xff0962ff), fontF: 'ProductSans', wei: FontWeight.bold, size:25,)
++          ),
++
++          Padding(
++            padding: const EdgeInsets.only(right:10.0),
++            child: RichText(text: TextSpan(
++                children: [
++                  TextSpan(text: "Rs. ",
++                      style: spanStyle,
++                  ),
++                  TextSpan(text: span2,
++                      style: spanStyle,
++                  ),
++                ]
++            ),
++            ),
++          ),
++        ],
++      ),
++      );
++  }
++}
++
++
++class text1 extends StatelessWidget {
++
++  text1({@required this.label , @required this.colour, @required this.fontF,@required this.wei, @required this.size});
++
++  final String label;
++  final Color colour;
++  final String fontF;
++  final FontWeight wei;
++  final double size;
++
++  @override
++  Widget build(BuildContext context) {
++    return Text(label,
++      style: TextStyle(
++        color: colour,
++        fontFamily: fontF,
++        fontWeight: wei,
++        fontSize: size,
++      ),);
+   }
+-}
++}
+\ No newline at end of file
+Index: lib/passwordChnage.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/passwordChnage.dart	(revision 29dc20d5cc629554837d2ac732341a170ab31954)
++++ lib/passwordChnage.dart	(date 1618758963732)
+@@ -1,8 +1,9 @@
+ import 'package:flutter/cupertino.dart';
+ import 'package:flutter/material.dart';
++import 'package:login/Accounts.dart';
+ import 'Login.dart';
+ import 'inputBox.dart';
+-
++import 'LoginN.dart';
+ class passwordChange extends StatelessWidget {
+   @override
+   Widget build(BuildContext context) {
+@@ -29,42 +30,15 @@
+             Column(
+               crossAxisAlignment: CrossAxisAlignment.center,
+               children: [
+-                Align(
+-                  alignment: Alignment.centerLeft,
+-                  child: Padding(
+-                    padding: EdgeInsets.only(left:40,top: 50),
+-                    child: Text(
+-                      'Enter New Password',
+-                      style: TextStyle(
+-                          fontSize: 25,
+-                          fontFamily: 'ProductSans',
+-                          fontWeight: FontWeight.normal,
+-                          color: Color(0xff0962ff)
+-                      ),
+-                    ),
+-                  ),
+-                ),
++                Align1(label: 'Enter New Password',colour: Color(0xff0962ff), fontF: 'ProductSans',wei: FontWeight.normal,size: 25,),
+                 SizedBox(
+                   height: 10,
+                 ),
+                 SimpleInput(
+                   inputHint: "8+ Characters",
+                 ),
+-                Align(
+-                  alignment: Alignment.centerLeft,
+-                  child: Padding(
+-                    padding: EdgeInsets.only(left:40,top: 25),
+-                    child: Text(
+-                      'Re-Enter',
+-                      style: TextStyle(
+-                          fontSize: 25,
+-                          fontFamily: 'ProductSans',
+-                          fontWeight: FontWeight.normal,
+-                          color: Color(0xff0962ff)
+-                      ),
+-                    ),
+-                  ),
+-                ),
++                Align1(label:  'Re-Enter',colour: Color(0xff0962ff), fontF: 'ProductSans',wei: FontWeight.normal,size: 25,),
++
+                 SizedBox(
+                   height: 10,
+                 ),
+@@ -76,7 +50,7 @@
+                 ),
+                 InkWell(
+                   onTap: (){
+-                    Navigator.push(context, MaterialPageRoute(builder: (content)=>Homepage()));
++                    Navigator.push(context, MaterialPageRoute(builder: (content)=>HomePage1()));
+                   },
+                   child: Container(
+                     height: 50,
+@@ -86,21 +60,44 @@
+                         color: Color(0xff0962ff)
+                     ),
+                     child: Center(
+-                      child: Text("Update Password",
+-                      style: TextStyle(
+-                        fontSize: 20,
+-                        color: Colors.white,
+-                        fontWeight: FontWeight.bold,
+-                        fontFamily: "ProductSans"
+-                      )),
+-                    ),
+-                  ),
+-                )
+-              ],
+-            )
+-          ],
++                      child: text1(label: "Update Password",colour: Colors.white,fontF: "ProductSans",wei: FontWeight.bold,size: 20),
++                    ),
++                  ),
++                )
++              ],
++            )
++          ],
++        ),
++      ),
++    );
++  }
++}
++
++class Align1 extends StatelessWidget {
++  Align1({@required this.label , @required this.colour, @required this.fontF,@required this.wei, @required this.size});
++
++  final String label;
++  final Color colour;
++  final String fontF;
++  final FontWeight wei;
++  final double size;
++
++  @override
++  Widget build(BuildContext context) {
++    return Align(
++      alignment: Alignment.centerLeft,
++      child: Padding(
++        padding: EdgeInsets.only(left:40,top: 50),
++        child: Text(
++          label,
++          style: TextStyle(
++              fontSize: size,
++              fontFamily: fontF,
++              fontWeight: wei,
++              color: colour
++          ),
+         ),
+       ),
+     );
+   }
+-}
++}
+\ No newline at end of file
+Index: lib/Front.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/Front.dart	(revision 29dc20d5cc629554837d2ac732341a170ab31954)
++++ lib/Front.dart	(date 1618793402741)
+@@ -2,23 +2,25 @@
+ import 'package:flutter/cupertino.dart';
+ import 'package:flutter/material.dart';
+ import 'ScreenSize.dart';
+-class DataPage extends StatelessWidget {
++
++
++class mainC extends StatelessWidget {
+   @override
+   Widget build(BuildContext context) {
+     return MaterialApp(
+       theme: ThemeData.light(),
+       debugShowCheckedModeBanner: false,
+-      home: Content(),
++      home: MainData(),
+     );
+   }
+ }
+ 
+-class Content extends StatefulWidget {
++class MainData extends StatefulWidget {
+   @override
+-  _ContentState createState() => _ContentState();
++  _MainDataState createState() => _MainDataState();
+ }
+ 
+-class _ContentState extends State<Content> {
++class _MainDataState extends State<MainData> {
+   int _currentIndex = 0;
+   final List<Widget> _children = [];
+ 
+@@ -29,13 +31,7 @@
+         backgroundColor: Colors.white38,
+         title: Padding(
+           padding: const EdgeInsets.only(left: 23.0),
+-          child: Text('Change',
+-            style: TextStyle(
+-                color: Color(0xFF0C2551),
+-                fontFamily: 'ProductSans',
+-                fontWeight: FontWeight.bold,
+-                fontSize: 25
+-            ),),
++          child: text1(label: 'Change', colour: Color(0xFF0C2551), fontF: 'ProductSans', wei: FontWeight.bold, size:  25)
+         ),
+       ),
+       body: SingleChildScrollView(
+@@ -50,9 +46,9 @@
+                   child: Container(
+                     width: displayWidth(context) * 0.9,
+                     height: displayHeight(context) * 0.33,
+-                    decoration: BoxDecoration(
+-                      color: Colors.white10,
+-                      borderRadius: BorderRadius.circular(20),
++                    decoration:  BoxDecoration(
++                      borderRadius: BorderRadius.circular(10),
++                      color: Colors.black38,
+                       gradient: LinearGradient(
+                           begin: Alignment.topLeft,
+                           end: Alignment.bottomRight,
+@@ -92,61 +88,13 @@
+                         ],),
+                         Padding(
+                           padding: const EdgeInsets.only(top: 12.0),
+-                          child: Align(
+-                            alignment: Alignment.center,
+-                            child: RichText(text: TextSpan(
+-                                children: [
+-                                  TextSpan(text: "Rs. ",
+-                                      style: TextStyle(
+-                                        fontFamily: 'ProductSans',
+-                                        fontSize: 35,
+-                                        color: Colors.black,
+-                                      )
+-                                  ),
+-                                  TextSpan(text: "7,290",
+-                                      style: TextStyle(
+-                                        fontFamily: 'ProductSans',
+-                                        fontSize: 35,
+-                                        color: Colors.black,
+-                                      )
+-                                  ),
+-                                ]
+-                            ),
+-                            ),
+-                          ),
++                          child: Front_Align1(span1:"Rs. ",span1size: 35,span3: "7,290",span3size: 45,)
++
+                         ),
+                         Padding(
+                           padding: const EdgeInsets.only(top: 30.0),
+-                          child: Align(
+-                            alignment: Alignment.center,
+-                            child: RichText(text: TextSpan(
+-                                children: [
+-                                  TextSpan(text: "Of Your Rs: ",
+-                                      style: TextStyle(
+-                                        fontFamily: 'ProductSans',
+-                                        fontSize: 20,
+-                                        color: Colors.black,
+-                                      )
+-                                  ),
+-                                  TextSpan(text: "45,000",
+-                                      style: TextStyle(
+-                                        fontFamily: 'ProductSans',
+-                                        fontSize: 25,
+-                                        color: Color(0xff0962FF),
+-                                      )
+-                                  ),
+-                                  TextSpan(text: " Target- 13 Days",
+-                                      style: TextStyle(
+-                                        fontFamily: 'ProductSans',
+-                                        fontSize: 20,
+-                                        color: Colors.black,
+-                                      )
+-                                  ),
+-                                ]
+-                            ),
+-                            ),
+-                          ),
+-                        ),
++                          child: Front_Align1(span1:"Of Your Rs: ",span1size: 20,span2:"45,092",span2size: 25,span3: " Target-13 Days",span3size: 20,)
++                        )
+                       ],
+                     ),
+                   ),
+@@ -154,15 +102,8 @@
+                 Align(
+                   alignment: Alignment.topLeft,
+                   child: Padding(padding: EdgeInsets.only(left: 30, bottom: 10),
+-                    child: Text(
+-                      'Daily Insights',
+-                      style: TextStyle(
+-                        fontSize: 20,
+-                        fontFamily: 'ProductSans',
+-                        fontWeight: FontWeight.bold,
+-                        color: Color(0xff0962ff),
+-                      ),
+-                    ),),
++                    child: text1(label: 'Daily Insights',  colour:  Color(0xff0962ff),fontF: 'ProductSans',wei: FontWeight.bold, size: 20)
++                  ),
+                 ),
+                 Container(
+                   height: displayHeight(context) * 0.3,
+@@ -171,336 +112,188 @@
+                     scrollDirection: Axis.horizontal,
+                     children: [
+                       SizedBox(width: 20,),
+-                      Container(
+-                        margin: EdgeInsets.only(top: 10, right: 8),
+-                        height: 175,
+-                        width: 250,
+-                        decoration: BoxDecoration(
+-                          borderRadius: BorderRadius.circular(10),
+-                          color: Colors.black38,
+-                          gradient: LinearGradient(
+-                              begin: Alignment.topLeft,
+-                              end: Alignment.bottomRight,
+-                              //stops: [0.1, 0.7, 0.9],
+-                              colors: [
+-                                // Colors.black38,
+-                                //Color(0xFF0C2551),
+-                                Colors.black,
+-                                Colors.blue,
+-                              ]
+-                          ),
+-                        ),
+-                        child: Column(
+-                          crossAxisAlignment: CrossAxisAlignment.center,
+-                          children: [
+-                            Padding(
+-                              padding: const EdgeInsets.only(top: 20),
+-                              child: Text('Spotify',
+-                                style: TextStyle(
+-                                  color: Colors.black,
+-                                  fontWeight: FontWeight.bold,
+-                                  fontFamily: 'ProductSans',
+-                                  fontSize: 35,
+-                                ),
+-                              ),
+-                            ),
+-                            Divider(
+-                              height: 10,
+-                              thickness: 5,
+-                              endIndent: 10,
+-                              indent: 10,
+-                              color: Colors.black,
+-                            ),
+-                            Padding(
+-                              padding: const EdgeInsets.only(top: 12.0),
+-                              child: Align(
+-                                alignment: Alignment.center,
+-                                child: RichText(text: TextSpan(
+-                                    children: [
+-                                      TextSpan(text: "Rs. ",
+-                                          style: TextStyle(
+-                                            fontFamily: 'ProductSans',
+-                                            fontSize: 25,
+-                                            color: Colors.black,
+-                                          )
+-                                      ),
+-                                      TextSpan(text: "990",
+-                                          style: TextStyle(
+-                                            fontFamily: 'ProductSans',
+-                                            fontSize: 25,
+-                                            color: Color(0xff0962ff),
+-                                          )
+-                                      ),
+-                                    ]
+-                                ),
+-                                ),
+-                              ),
+-                            ),
+-                            Padding(
+-                              padding: const EdgeInsets.only(top: 10),
+-                              child: Text('Upcoming debt on May 11',
+-                                style: TextStyle(
+-                                  color: Colors.black,
+-                                  fontWeight: FontWeight.bold,
+-                                  fontFamily: 'ProductSans',
+-                                  fontSize: 20,
+-                                ),
+-                              ),
+-                            ),
+-                            SizedBox(height: 10,),
+-                            InkWell(
+-                              child: Container(
+-                                width: 90,
+-                                height: 35,
+-                                decoration: BoxDecoration(
+-                                    color: Color(0xff0962ff),
+-                                    borderRadius: BorderRadius.circular(20)),
+-                                child: Center(
+-                                  child: Text('View',
+-                                    style: TextStyle(
+-                                        fontFamily: 'ProductSans',
+-                                        fontSize: 20,
+-                                        fontWeight: FontWeight.bold,
+-                                        color: Colors.white),
+-                                  ),
+-                                ),
+-                              ),
+-                            )
+-                          ],
+-                        ),
+-                      ),
+-                      Container(
+-                        margin: EdgeInsets.only(top: 10, right: 8),
+-                        height: 175,
+-                        width: 250,
+-                        decoration: BoxDecoration(
+-                          borderRadius: BorderRadius.circular(10),
+-                          color: Colors.black38,
+-                          gradient: LinearGradient(
+-                              begin: Alignment.topLeft,
+-                              end: Alignment.bottomRight,
+-                              //stops: [0.1, 0.7, 0.9],
+-                              colors: [
+-                                // Colors.black38,
+-                                //Color(0xFF0C2551),
+-                                Colors.black,
+-                                Colors.blue,
+-                              ]
+-                          ),
+-                        ),
+-                        child: Column(
+-                          crossAxisAlignment: CrossAxisAlignment.center,
+-                          children: [
+-                            Padding(
+-                              padding: const EdgeInsets.only(top: 20),
+-                              child: Text('Netflix',
+-                                style: TextStyle(
+-                                  color: Colors.black,
+-                                  fontWeight: FontWeight.bold,
+-                                  fontFamily: 'ProductSans',
+-                                  fontSize: 35,
+-                                ),
+-                              ),
+-                            ),
+-                            Divider(
+-                              height: 10,
+-                              thickness: 5,
+-                              endIndent: 10,
+-                              indent: 10,
+-                              color: Colors.black,
+-                            ),
+-                            Padding(
+-                              padding: const EdgeInsets.only(top: 12.0),
+-                              child: Align(
+-                                alignment: Alignment.center,
+-                                child: RichText(text: TextSpan(
+-                                    children: [
+-                                      TextSpan(text: "Rs. ",
+-                                          style: TextStyle(
+-                                            fontFamily: 'ProductSans',
+-                                            fontSize: 25,
+-                                            color: Colors.black,
+-                                          )
+-                                      ),
+-                                      TextSpan(text: "250",
+-                                          style: TextStyle(
+-                                            fontFamily: 'ProductSans',
+-                                            fontSize: 25,
+-                                            color: Color(0xff0962ff),
+-                                          )
+-                                      ),
+-                                      TextSpan(text: " Per Screen",
+-                                          style: TextStyle(
+-                                              fontFamily: 'ProductSans',
+-                                              fontSize: 20,
+-                                              color: Colors.black
+-                                          )
+-                                      ),
+-                                    ]
+-                                ),
+-                                ),
+-                              ),
+-                            ),
+-                            Padding(
+-                              padding: const EdgeInsets.only(top: 10),
+-                              child: Text('Limited Offer',
+-                                style: TextStyle(
+-                                  color: Colors.black,
+-                                  fontWeight: FontWeight.bold,
+-                                  fontFamily: 'ProductSans',
+-                                  fontSize: 20,
+-                                ),
+-                              ),
+-                            ),
+-                            SizedBox(height: 10,),
+-                            InkWell(
+-                              child: Container(
+-                                width: 90,
+-                                height: 35,
+-                                decoration: BoxDecoration(
+-                                    color: Color(0xff0962ff),
+-                                    borderRadius: BorderRadius.circular(20)),
+-                                child: Center(
+-                                  child: Text('View',
+-                                    style: TextStyle(
+-                                        fontFamily: 'ProductSans',
+-                                        fontSize: 20,
+-                                        fontWeight: FontWeight.bold,
+-                                        color: Colors.white),
+-                                  ),
+-                                ),
+-                              ),
+-                            )
+-                          ],
+-                        ),
+-                      ),
+-                      Container(
+-                        margin: EdgeInsets.only(top: 10, right: 8),
+-                        height: 175,
+-                        width: 250,
+-                        decoration: BoxDecoration(
+-                          borderRadius: BorderRadius.circular(10),
+-                          color: Colors.black38,
+-                          gradient: LinearGradient(
+-                              begin: Alignment.topLeft,
+-                              end: Alignment.bottomRight,
+-                              //stops: [0.1, 0.7, 0.9],
+-                              colors: [
+-                                // Colors.black38,
+-                                //Color(0xFF0C2551),
+-                                Colors.black,
+-                                Colors.blue,
+-                              ]
+-                          ),
+-                        ),
+-                        child: Column(
+-                          crossAxisAlignment: CrossAxisAlignment.center,
+-                          children: [
+-                            Padding(
+-                              padding: const EdgeInsets.only(top: 20),
+-                              child: Text('YouTube',
+-                                style: TextStyle(
+-                                  color: Colors.black,
+-                                  fontWeight: FontWeight.bold,
+-                                  fontFamily: 'ProductSans',
+-                                  fontSize: 35,
+-                                ),
+-                              ),
+-                            ),
+-                            Divider(
+-                              height: 10,
+-                              thickness: 5,
+-                              endIndent: 10,
+-                              indent: 10,
+-                              color: Colors.black,
+-                            ),
+-                            Padding(
+-                              padding: const EdgeInsets.only(top: 12.0),
+-                              child: Align(
+-                                alignment: Alignment.center,
+-                                child: RichText(text: TextSpan(
+-                                    children: [
+-                                      TextSpan(text: "Rs. ",
+-                                          style: TextStyle(
+-                                            fontFamily: 'ProductSans',
+-                                            fontSize: 25,
+-                                            color: Colors.black,
+-                                          )
+-                                      ),
+-                                      TextSpan(text: "990",
+-                                          style: TextStyle(
+-                                            fontFamily: 'ProductSans',
+-                                            fontSize: 25,
+-                                            color: Color(0xff0962ff),
+-                                          )
+-                                      ),
+-                                    ]
+-                                ),
+-                                ),
+-                              ),
+-                            ),
+-                            Padding(
+-                              padding: const EdgeInsets.only(top: 10),
+-                              child: Text('Upcoming debt on May 11',
+-                                style: TextStyle(
+-                                  color: Colors.black,
+-                                  fontWeight: FontWeight.bold,
+-                                  fontFamily: 'ProductSans',
+-                                  fontSize: 20,
+-                                ),
+-                              ),
+-                            ),
+-                            SizedBox(height: 10,),
+-                            InkWell(
+-                              child: Container(
+-                                width: 90,
+-                                height: 35,
+-                                decoration: BoxDecoration(
+-                                    color: Color(0xff0962ff),
+-                                    borderRadius: BorderRadius.circular(20)),
+-                                child: Center(
+-                                  child: Text('View',
+-                                    style: TextStyle(
+-                                        fontFamily: 'ProductSans',
+-                                        fontSize: 20,
+-                                        fontWeight: FontWeight.bold,
+-                                        color: Colors.white),
+-                                  ),
+-                                ),
+-                              ),
+-                            )
+-                          ],
+-                        ),
+-                      ),
+-                      SizedBox(width: 15,),
+-                    ],
+-                  ),
+-                ),
+-
+-              ],
+-            )
+-          ],
+-        ),
+-      ),
+-      bottomNavigationBar: BottomNavigationBar(
+-        backgroundColor: Colors.white,
+-        items: [
+-          BottomNavigationBarItem(icon: Icon(Icons.home),
+-              backgroundColor: Colors.lightGreen,
+-              title: Text("home", style: TextStyle(color: Colors.white),)),
+-          BottomNavigationBarItem(icon: Icon(Icons.account_balance),
+-              backgroundColor: Colors.lightGreen,
+-              title: Text("Account", style: TextStyle(color: Colors.white),)),
+-          BottomNavigationBarItem(icon: Icon(Icons.compare_arrows_sharp),
+-              backgroundColor: Colors.lightGreen,
+-              title: Text("Transection", style: TextStyle(color: Colors.white),)),
+-          BottomNavigationBarItem(icon: Icon(Icons.settings),
+-              backgroundColor: Colors.lightGreen,
+-              title: Text("Setting", style: TextStyle(color: Colors.white),)),
+-        ],
+-      ),
+-    );
++                      insights_Container(label: "Spotify", span1: "Rs. ", span2: "990", paddingT: "Upcoming debt on May 11",LinkT: "View",),
++                      insights_Container(label: "Netflix", span1: "Rs. ", span2: "250", span3: "Per Screen",paddingT: "Limited Offer",LinkT: "View",),
++                      insights_Container(label: "YouTube", span1: "Rs. ", span2: "1100", paddingT: "Upcoming debt on May 11",LinkT: "View",),
++                      SizedBox(width: 15,),
++                    ],
++                  ),
++                ),
++
++              ],
++            )
++          ],
++        ),
++      ),
++      );
++  }
++}
++
++class insights_Container extends StatelessWidget {
++
++  insights_Container({@required this.label, @required this.span1, this.span2, this.span3, @required this.paddingT, @required this.LinkT});
++  final String label;
++  final String span1;
++  final String span2;
++  final String span3;
++  final String paddingT;
++  final String LinkT;
++
++  @override
++  Widget build(BuildContext context) {
++    return Container(
++      margin: EdgeInsets.only(top: 10, right: 8),
++      height: 175,
++      width: 250,
++      decoration: BoxDecoration(
++        borderRadius: BorderRadius.circular(10),
++        color: Colors.black38,
++        gradient: LinearGradient(
++            begin: Alignment.topLeft,
++            end: Alignment.bottomRight,
++            //stops: [0.1, 0.7, 0.9],
++            colors: [
++              // Colors.black38,
++              //Color(0xFF0C2551),
++              Colors.black,
++              Colors.blue,
++            ]
++        ),
++      ),
++      child: Column(
++        crossAxisAlignment: CrossAxisAlignment.center,
++        children: [
++          Padding(
++            padding: const EdgeInsets.only(top: 20),
++            child: Text(label,
++              style: TextStyle(
++                color: Colors.black,
++                fontWeight: FontWeight.bold,
++                fontFamily: 'ProductSans',
++                fontSize: 35,
++              ),
++            ),
++          ),
++          Divider(
++            height: 10,
++            thickness: 5,
++            endIndent: 10,
++            indent: 10,
++            color: Colors.black,
++          ),
++          Padding(
++            padding: const EdgeInsets.only(top: 12.0),
++            child: Align(
++              alignment: Alignment.center,
++              child: RichText(text: TextSpan(
++                  children: [
++                    TextSpan(text: span1,
++                        style: TextStyle(
++                          fontFamily: 'ProductSans',
++                          fontSize: 25,
++                          color: Colors.black,
++                        )
++                    ),
++                    TextSpan(text: span2,
++                        style: TextStyle(
++                          fontFamily: 'ProductSans',
++                          fontSize: 25,
++                          color: Color(0xff0962ff),
++                        )
++                    ),
++                    TextSpan(text: span3,
++                        style: TextStyle(
++                            fontFamily: 'ProductSans',
++                            fontSize: 20,
++                            color: Colors.black
++                        )
++                    ),
++                  ]
++              ),
++              ),
++            ),
++          ),
++          Padding(
++            padding: const EdgeInsets.only(top: 10),
++            child: text1(label: paddingT,colour: Colors.black,fontF: 'ProductSans',wei: FontWeight.bold,size: 20)
++
++          ),
++          SizedBox(height: 10,),
++          InkWell(
++            child: Container(
++              width: 90,
++              height: 35,
++              decoration: BoxDecoration(
++                  color: Color(0xff0962ff),
++                  borderRadius: BorderRadius.circular(20)),
++              child: Center(
++                child: text1(label: LinkT,colour: Colors.white,fontF: 'ProductSans',wei: FontWeight.bold,size: 20)
++              ),
++            ),
++          )
++        ],
++      ),
++    );
++  }
++}
++
++class Front_Align1 extends StatelessWidget {
++  Front_Align1({this.span1,this.span1size,this.span2,this.span2size,this.span3,this.span3size});
++final String span1; final double span1size;
++final String span2; final double span2size;
++final String span3; final double span3size;
++  @override
++  Widget build(BuildContext context) {
++    return Align(
++      alignment: Alignment.center,
++      child: RichText(text: TextSpan(
++          children: [
++            TextSpan(text: span1,
++                style: TextStyle(
++                  fontFamily: 'ProductSans',
++                  fontSize: span1size,
++                  color: Colors.black,
++                )
++            ),
++            TextSpan(text: span2,
++                style: TextStyle(
++                  fontFamily: 'ProductSans',
++                  fontSize: span2size,
++                  color: Color(0xff0962FF),
++                )
++            ),
++            TextSpan(text: span3,
++                style: TextStyle(
++                  fontFamily: 'ProductSans',
++                  fontSize: span3size,
++                  color: Colors.black,
++                )
++            ),
++          ]
++      ),
++      ),
++    );
++  }
++}
++
++class text1 extends StatelessWidget {
++
++  text1({@required this.label , @required this.colour, @required this.fontF,@required this.wei, @required this.size});
++
++  final String label;
++  final Color colour;
++  final String fontF;
++  final FontWeight wei;
++  final double size;
++
++  @override
++  Widget build(BuildContext context) {
++    return Text(label,
++      style: TextStyle(
++        color: colour,
++        fontFamily: fontF,
++        fontWeight: wei,
++        fontSize: size,
++      ),);
+   }
+ }
+-
+-
+Index: lib/inputBox.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/inputBox.dart	(revision 29dc20d5cc629554837d2ac732341a170ab31954)
++++ lib/inputBox.dart	(date 1615960436107)
+@@ -77,6 +77,7 @@
+ class _SimpleInputState extends State<SimpleInput> {
+   @override
+   Widget build(BuildContext context) {
++
+     return Column(
+       children: [
+         Padding(
+@@ -118,3 +119,53 @@
+   }
+ }
+ 
++class SimpleInputP extends StatefulWidget {
++  String inputHint;
++  SimpleInputP({this.inputHint});
++  @override
++  _SimpleInputPState createState() => _SimpleInputPState();
++}
++
++class _SimpleInputPState extends State<SimpleInputP> {
++  @override
++  Widget build(BuildContext context) {
++    return Column(
++      children: [
++        Padding(
++          padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
++          child: TextFormField(
++              obscureText: widget.inputHint == 'Password' ? true : false,
++              onEditingComplete: () {},
++              style: TextStyle(
++                fontSize: 19,
++                color: Color(0xff0962ff),
++                fontWeight: FontWeight.bold,
++              ),
++              decoration: InputDecoration(
++                hintText: widget.inputHint,
++                hintStyle: TextStyle(
++                  fontSize: 19,
++                  color: Colors.black38,
++                  fontWeight: FontWeight.w600,
++                ),
++                contentPadding: EdgeInsets.symmetric(vertical: 27, horizontal: 25),
++                focusColor: Color(0xff0962ff),
++                focusedBorder: OutlineInputBorder(
++                  borderRadius: BorderRadius.circular(27),
++                  borderSide: BorderSide(
++                    color: Color(0xff0962ff),
++                  ),
++                ),
++                enabledBorder: OutlineInputBorder(
++                  borderRadius: BorderRadius.circular(27),
++                  borderSide: BorderSide(
++                    color: Colors.grey[350],
++                  ),
++                ),
++              )
++          ),
++        ),
++      ],
++    );
++  }
++}
+Index: lib/Login.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/Login.dart	(revision 29dc20d5cc629554837d2ac732341a170ab31954)
++++ lib/Login.dart	(date 1618781032711)
+@@ -7,7 +7,6 @@
+ import 'LoginN.dart';
+ 
+ 
+-
+ void main() => runApp(
+   MaterialApp(
+     theme: ThemeData.light(),
+@@ -16,8 +15,10 @@
+   )
+ );
+ 
++
+ class Homepage extends StatelessWidget {
+   @override
++
+   Widget build(BuildContext context) {
+     return Scaffold(
+       //backgroundColor: Image.asset('assets/images/pink_floyd.jpg').color,
+@@ -148,7 +149,7 @@
+                           ),
+                       ),
+                           onPressed: (){
+-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>DataPage()),);
++                            Navigator.push(context, MaterialPageRoute(builder: (context)=>mainC()),);
+                           },
+                         ),
+                       ),
+Index: lib/ForgetPassword.dart
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/ForgetPassword.dart	(revision 29dc20d5cc629554837d2ac732341a170ab31954)
++++ lib/ForgetPassword.dart	(date 1618759535474)
+@@ -2,6 +2,7 @@
+ import 'inputBox.dart';
+ import 'passwordChnage.dart';
+ import 'InputBoxNum.dart';
++
+ class ForgetPassword extends StatelessWidget {
+   @override
+   Widget build(BuildContext context) {
+@@ -25,13 +26,9 @@
+         backgroundColor: Colors.white38,
+         title: Padding(
+           padding: const EdgeInsets.only(left:23.0),
+-          child: Text('Forget Password',
+-            style: TextStyle(
+-                color: Color(0xFF0C2551),
+-                fontFamily: 'ProductSans',
+-                fontWeight: FontWeight.bold,
+-                fontSize: 25
+-            ),),
++          child: text1(
++            label: 'Forget Password', colour: Color(0xFF0C2551),fontF: 'ProductSans', wei: FontWeight.bold, size: 25,
++          ),
+         ),
+       ),
+       body: SingleChildScrollView(
+@@ -45,17 +42,11 @@
+                   alignment: Alignment.center,
+                   child: Padding(
+                     padding: const EdgeInsets.only(top:30),
+-                    child: Text(
+-                      "Account Recovery",
+-                      style: TextStyle(
+-                        fontSize: 25,
+-                        fontFamily: 'Cardo',
+-                        fontWeight: FontWeight.w900,
+-                        color: Color(0xFF0C2551),
++                    child: text1(
++                      label:"Account Recovery", colour: Color(0xFF0C2551),fontF:'Cardo',wei: FontWeight.w900,size: 25
+                       ),
+                     ),
+                   ),
+-                ),
+                 //
+                 SizedBox(
+                   height: 20,
+@@ -65,13 +56,8 @@
+                   alignment: Alignment.centerLeft,
+                   child: Padding(
+                     padding: const EdgeInsets.only(left:50.0),
+-                    child: Text("Enter email of your account",
+-                    style: TextStyle(
+-                        fontFamily: 'ProductSans',
+-                        fontSize: 18,
+-                        fontWeight: FontWeight.bold,
+-                      color: Color(0xff8f9db2),
+-                    ),
++                    child: text1(label: "Enter email of your account", colour:Color(0xff8f9db2),fontF:'ProductSans', wei: FontWeight.bold,size: 18,
++
+                     ),
+                   ),
+                 ),
+@@ -98,14 +84,7 @@
+                     color: Color(0xff0962ff),
+                   ),
+                   child: Center(
+-                    child: Text(
+-                      "Next",
+-                      style: TextStyle(
+-                          fontFamily: 'ProductSans',
+-                          fontSize: 20,
+-                          color: Colors.white,
+-                          fontWeight: FontWeight.w700
+-                      ),
++                    child: text1(label:"Next",colour: Colors.white, fontF: 'ProductSans', wei: FontWeight.w700,size:20,
+                     ),
+                   ),
+                 )),
+@@ -118,16 +97,10 @@
+                   alignment: Alignment.centerLeft,
+                   child: Padding(
+                     padding: const EdgeInsets.only(left:50.0),
+-                    child: Text("Send 6-Digits code to your email address",
+-                      style: TextStyle(
+-                        fontFamily: 'ProductSans',
+-                        fontSize: 15,
+-                        fontWeight: FontWeight.bold,
+-                        color: Color(0xff8f9db5),
++                    child: text1(label:"Send 6-Digits code to your email address",colour: Color(0xff8f9db5),  fontF: 'ProductSans', wei: FontWeight.bold, size: 15,
+                       ),
+                     ),
+                   ),
+-                ),
+                 //
+                 SizedBox(
+                   height: 20,
+@@ -144,14 +117,7 @@
+                   alignment: Alignment.centerLeft,
+                   child: Padding(
+                     padding: const EdgeInsets.only(left:50.0),
+-                    child: Text("Send 6-Digits code to your Phone Number",
+-                      style: TextStyle(
+-                        fontFamily: 'ProductSans',
+-                        fontSize: 15,
+-                        fontWeight: FontWeight.bold,
+-                        color: Color(0xff8f9db5),
+-                      ),
+-                    ),
++                    child: text1(label: "Send 6-Digits code to your Phone Number",colour: Color(0xff8f9db5),fontF: 'ProductSans',wei:  FontWeight.bold,size: 15),
+                   ),
+                 ),
+                 //
+@@ -180,15 +146,8 @@
+                         color: Color(0xff0962ff),
+                       ),
+                       child: Center(
+-                        child: Text(
+-                          "Confirm",
+-                          style: TextStyle(
+-                              fontFamily: 'ProductSans',
+-                              fontSize: 20,
+-                              color: Colors.white,
+-                              fontWeight: FontWeight.w700
+-                          ),
+-                        ),
++                        child:text1(label: "Confirm",colour: Colors.white,fontF: 'ProductSans',wei:  FontWeight.w700,size: 20),
++
+                       ),
+                     ),
+                   ),
+@@ -205,3 +164,25 @@
+   }
+ }
+ 
++class text1 extends StatelessWidget {
++
++  text1({@required this.label , @required this.colour, @required this.fontF,@required this.wei, @required this.size});
++
++  final String label;
++  final Color colour;
++  final String fontF;
++  final FontWeight wei;
++  final double size;
++
++  @override
++  Widget build(BuildContext context) {
++    return Text(label,
++      style: TextStyle(
++          color: colour,
++          fontFamily: fontF,
++          fontWeight: wei,
++          fontSize: size,
++      ),);
++  }
++}
++
