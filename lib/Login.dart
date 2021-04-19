@@ -7,7 +7,6 @@ import 'Front.dart';
 import 'LoginN.dart';
 
 
-
 void main() => runApp(
   MaterialApp(
     theme: ThemeData.light(),
@@ -16,8 +15,10 @@ void main() => runApp(
   )
 );
 
+
 class Homepage extends StatelessWidget {
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       //backgroundColor: Image.asset('assets/images/pink_floyd.jpg').color,
@@ -148,7 +149,7 @@ class Homepage extends StatelessWidget {
                           ),
                       ),
                           onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>DataPage()),);
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=>mainC()),);
                           },
                         ),
                       ),

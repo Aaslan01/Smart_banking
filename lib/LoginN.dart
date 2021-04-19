@@ -5,7 +5,17 @@ import 'package:flutter/material.dart';
 import 'ForgetPassword.dart';
 import 'Front.dart';
 
+
 import 'inputBox.dart';
+
+const ConColor1 =  LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xff0962ff),
+      Colors.black38,
+    ]
+);
 
 
 class HomePage1 extends StatelessWidget {
@@ -23,14 +33,7 @@ class HomePage1 extends StatelessWidget {
                 Container(
                   height: scrheight*0.4,
                   decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        colors: [
-                          Color(0xff0962ff),
-                          Colors.black38,
-                        ]
-                      )
+                      gradient: ConColor1,
                   ),
                   child: Stack(
                     children: <Widget>[
@@ -38,32 +41,19 @@ class HomePage1 extends StatelessWidget {
                         left: 30,
                         width: 80,
                         height: 200,
-                        child: FadeAnimation(1, Container(
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage('assets/images/light-1.png')
-                              )
-                          ),
-                        )),
+                        child: FadeAnimation(1, ImageCon(image1: AssetImage('assets/images/light-1.png'))),
                       ),
                       Positioned(
                         left: 140,
                         width: 80,
                         height: 150,
-                        child: FadeAnimation(1.3, Container(
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: AssetImage('assets/images/light-2.png')
-                              )
-                          ),
-                        )),
+                        child: FadeAnimation(1.3, ImageCon(image1: AssetImage('assets/images/light-2.png'))),
                       ),
                       Positioned(
                         child: FadeAnimation(1.6, Container(
                           margin: EdgeInsets.only(top: 80),
                           child: Center(
                             child: Text("Login",
-
                               style:  TextStyle(
                                   fontFamily: 'Cardo',
                                   fontSize: 50,
@@ -97,9 +87,7 @@ class HomePage1 extends StatelessWidget {
                           children: <Widget>[
                             SimpleInput(inputHint: "Enter Valid Email",),
                             SizedBox(height: 10,),
-                            SimpleInput(
-                              inputHint: 'Password',
-                            ),
+                            SimpleInputP(inputHint: 'Password',),
                           ],
                         ),
                       )),
@@ -109,14 +97,7 @@ class HomePage1 extends StatelessWidget {
                           height: 50,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
-                              gradient: LinearGradient(
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                  colors: [
-                                    Color(0xff0962ff),
-                                    Colors.black38,
-                                  ]
-                              )
+                              gradient: ConColor1,
                           ),
                           child: Center(child: Text("Login", style: TextStyle(color: Colors.black87,
                               fontWeight: FontWeight.bold,fontSize: 25, fontFamily: "ProductSans"),
@@ -124,7 +105,7 @@ class HomePage1 extends StatelessWidget {
                           ),
                         ),
                         onPressed: (){
-                         Navigator.push(context, MaterialPageRoute(builder: (context)=>DataPage()),);
+                         Navigator.push(context, MaterialPageRoute(builder: (context)=>mainC()),);
                         },
                       ),),
                       SizedBox(height: 20,),
@@ -159,3 +140,43 @@ class HomePage1 extends StatelessWidget {
     );
   }
 }
+
+class ImageCon extends StatelessWidget {
+
+  ImageCon({@required this.image1});
+
+  AssetImage image1;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: image1,
+          )
+      ),
+    );
+  }
+}
+
+//
+// class AccPass extends StatelessWidget {
+//
+//   AccPass({@required this.text,@required this.colour,@required this.size,@required this.link});
+//
+//   String text;
+//   Color colour;
+//   double size;
+//   Navigator link;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return InkWell(
+//       child: Center(child: Text(text, style: TextStyle(color: colour,
+//           fontWeight: FontWeight.bold, fontSize: size),
+//       ),),
+//       onTap: (){
+//         Navigator.push(context, MaterialPageRoute(builder: (context)=>link));
+//       },
+//     );
+//   }
+// }

@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:login/Accounts.dart';
 import 'Login.dart';
 import 'inputBox.dart';
-
+import 'LoginN.dart';
 class passwordChange extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -29,42 +30,15 @@ class Content extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(left:40,top: 50),
-                    child: Text(
-                      'Enter New Password',
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontFamily: 'ProductSans',
-                          fontWeight: FontWeight.normal,
-                          color: Color(0xff0962ff)
-                      ),
-                    ),
-                  ),
-                ),
+                Align1(label: 'Enter New Password',colour: Color(0xff0962ff), fontF: 'ProductSans',wei: FontWeight.normal,size: 25,),
                 SizedBox(
                   height: 10,
                 ),
                 SimpleInput(
                   inputHint: "8+ Characters",
                 ),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: EdgeInsets.only(left:40,top: 25),
-                    child: Text(
-                      'Re-Enter',
-                      style: TextStyle(
-                          fontSize: 25,
-                          fontFamily: 'ProductSans',
-                          fontWeight: FontWeight.normal,
-                          color: Color(0xff0962ff)
-                      ),
-                    ),
-                  ),
-                ),
+                Align1(label:  'Re-Enter',colour: Color(0xff0962ff), fontF: 'ProductSans',wei: FontWeight.normal,size: 25,),
+
                 SizedBox(
                   height: 10,
                 ),
@@ -76,7 +50,7 @@ class Content extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (content)=>Homepage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (content)=>HomePage1()));
                   },
                   child: Container(
                     height: 50,
@@ -86,19 +60,42 @@ class Content extends StatelessWidget {
                         color: Color(0xff0962ff)
                     ),
                     child: Center(
-                      child: Text("Update Password",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "ProductSans"
-                      )),
+                      child: text1(label: "Update Password",colour: Colors.white,fontF: "ProductSans",wei: FontWeight.bold,size: 20),
                     ),
                   ),
                 )
               ],
             )
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class Align1 extends StatelessWidget {
+  Align1({@required this.label , @required this.colour, @required this.fontF,@required this.wei, @required this.size});
+
+  final String label;
+  final Color colour;
+  final String fontF;
+  final FontWeight wei;
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Padding(
+        padding: EdgeInsets.only(left:40,top: 50),
+        child: Text(
+          label,
+          style: TextStyle(
+              fontSize: size,
+              fontFamily: fontF,
+              fontWeight: wei,
+              color: colour
+          ),
         ),
       ),
     );

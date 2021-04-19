@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'Login.dart';
+import 'LoginN.dart';
 import 'package:flutter/gestures.dart';
 import 'inputBox.dart';
 import 'InputBoxNum.dart';
@@ -9,6 +9,13 @@ import 'InputBoxNum.dart';
 // void main() {
 //   runApp(SignUpW());
 // }
+
+const spanTextStyle1= TextStyle(
+  fontFamily: 'ProductSans',
+  fontSize: 15,
+  fontWeight: FontWeight.bold,
+  color: Color(0xff8f9db5),
+);
 
 class SignUpW extends StatelessWidget {
   @override
@@ -47,35 +54,13 @@ class SignUp extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 40, top: 40),
-                    child: Text(
-                      'Sign Up',
-                      style: TextStyle(
-                        fontFamily: 'Cardo',
-                        fontSize: 35,
-                        color: Color(0xFF0C2551),
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                  ),
+                //
+                Align1(
+                  label:"Sign Up",colour: Color(0xFF0C2551), fontF: 'Cardo',wei: FontWeight.w900, size: 35,
                 ),
                 //
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 40, top: 20),
-                    child: Text(
-                      'Sign Up With',
-                      style: TextStyle(
-                          fontFamily: 'Nunito Sans',
-                          fontSize: 15,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w700),
-                    ),
-                  ),
+                Align1(
+                  label:'Sign Up With',colour: Colors.black, fontF: 'Nunito Sans',wei:  FontWeight.w700, size: 15,
                 ),
                 //
                 SizedBox(
@@ -93,19 +78,8 @@ class SignUp extends StatelessWidget {
                   ),
                 ),
                 //
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 40, top: 10),
-                    child: Text(
-                      'Or Complete these',
-                      style: TextStyle(
-                          fontFamily: 'Nunito Sans',
-                          fontSize: 15,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w700),
-                    ),
-                  ),
+                Align1(
+                  label:'Or Complete these',colour: Colors.black, fontF: 'Nunito Sans',wei:  FontWeight.w700, size: 15,
                 ),
                 //
                 SizedBox(
@@ -146,16 +120,10 @@ class SignUp extends StatelessWidget {
                 SizedBox(
                   height: 30,
                 ),
-
-                Text(
-                  'Creating an account means you\'re okay with\nour Terms of Service and Privacy Policy',
-                  style: TextStyle(
-                    fontFamily: 'ProductSans',
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xff8f9db5).withOpacity(0.5),
-                  ),
-                ),
+                //
+                text1(label: 'Creating an account means you\'re okay with\nour Terms of Service and Privacy Policy',
+                    colour:  Color(0xff8f9db5).withOpacity(0.7), fontF: 'ProductSans', wei: FontWeight.bold, size: 15),
+                //
                 SizedBox(
                   height: 20,
                 ),
@@ -167,18 +135,12 @@ class SignUp extends StatelessWidget {
                           color: Color(0xff0962ff),
                           borderRadius: BorderRadius.circular(20)),
                       child: Center(
-                        child: Text(
-                          'Create an Account',
-                          style: TextStyle(
-                              fontFamily: 'ProductSans',
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
-                        ),
+                        child: text1(label:'Create an Account',colour: Colors.white, fontF: 'ProductSans',
+                          wei:  FontWeight.bold,size: 20),
                       ),
                     ),
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> Homepage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage1()));
                   },
                 ),
                 SizedBox(
@@ -188,23 +150,13 @@ class SignUp extends StatelessWidget {
                   text: TextSpan(children: [
                     TextSpan(
                       text: 'Already have an access?',
-                      style: TextStyle(
-                        fontFamily: 'ProductSans',
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff8f9db5),
-                      ),
+                      style: spanTextStyle1,
                     ),
                     TextSpan(
                       text: ' Sign In',
                       recognizer: TapGestureRecognizer()..onTap = () => { print("HY"),
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> Homepage())),},
-                      style: TextStyle(
-                        fontFamily: 'ProductSans',
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff0962ff),
-                      ),
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage1())),},
+                      style: spanTextStyle1,
                     ),
                   ]),
                 ),
@@ -214,6 +166,37 @@ class SignUp extends StatelessWidget {
               ],
             )
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class Align1 extends StatelessWidget {
+
+  Align1({@required this.label , @required this.colour, @required this.fontF,@required this.wei, @required this.size});
+
+  final String label;
+  final Color colour;
+  final String fontF;
+  final FontWeight wei;
+  final double size;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 40, top: 40),
+        child: Text(
+          label,
+          style: TextStyle(
+            color:colour,
+            fontFamily: fontF,
+            fontWeight: wei,
+            fontSize: size,
+          ),
         ),
       ),
     );
@@ -247,5 +230,27 @@ class Test_Button extends StatelessWidget {
                 color: Color(0xff0962FF))),
       ),
     );
+  }
+}
+
+class text1 extends StatelessWidget {
+
+  text1({@required this.label , @required this.colour, @required this.fontF,@required this.wei, @required this.size});
+
+  final String label;
+  final Color colour;
+  final String fontF;
+  final FontWeight wei;
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(label,
+      style: TextStyle(
+        color: colour,
+        fontFamily: fontF,
+        fontWeight: wei,
+        fontSize: size,
+      ),);
   }
 }

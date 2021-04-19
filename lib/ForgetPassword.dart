@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'inputBox.dart';
 import 'passwordChnage.dart';
 import 'InputBoxNum.dart';
+
 class ForgetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -25,13 +26,9 @@ class Content extends StatelessWidget {
         backgroundColor: Colors.white38,
         title: Padding(
           padding: const EdgeInsets.only(left:23.0),
-          child: Text('Forget Password',
-            style: TextStyle(
-                color: Color(0xFF0C2551),
-                fontFamily: 'ProductSans',
-                fontWeight: FontWeight.bold,
-                fontSize: 25
-            ),),
+          child: text1(
+            label: 'Forget Password', colour: Color(0xFF0C2551),fontF: 'ProductSans', wei: FontWeight.bold, size: 25,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -45,17 +42,11 @@ class Content extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Padding(
                     padding: const EdgeInsets.only(top:30),
-                    child: Text(
-                      "Account Recovery",
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontFamily: 'Cardo',
-                        fontWeight: FontWeight.w900,
-                        color: Color(0xFF0C2551),
+                    child: text1(
+                      label:"Account Recovery", colour: Color(0xFF0C2551),fontF:'Cardo',wei: FontWeight.w900,size: 25
                       ),
                     ),
                   ),
-                ),
                 //
                 SizedBox(
                   height: 20,
@@ -65,13 +56,8 @@ class Content extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Padding(
                     padding: const EdgeInsets.only(left:50.0),
-                    child: Text("Enter email of your account",
-                    style: TextStyle(
-                        fontFamily: 'ProductSans',
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      color: Color(0xff8f9db2),
-                    ),
+                    child: text1(label: "Enter email of your account", colour:Color(0xff8f9db2),fontF:'ProductSans', wei: FontWeight.bold,size: 18,
+
                     ),
                   ),
                 ),
@@ -98,14 +84,7 @@ class Content extends StatelessWidget {
                     color: Color(0xff0962ff),
                   ),
                   child: Center(
-                    child: Text(
-                      "Next",
-                      style: TextStyle(
-                          fontFamily: 'ProductSans',
-                          fontSize: 20,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700
-                      ),
+                    child: text1(label:"Next",colour: Colors.white, fontF: 'ProductSans', wei: FontWeight.w700,size:20,
                     ),
                   ),
                 )),
@@ -118,16 +97,10 @@ class Content extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Padding(
                     padding: const EdgeInsets.only(left:50.0),
-                    child: Text("Send 6-Digits code to your email address",
-                      style: TextStyle(
-                        fontFamily: 'ProductSans',
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff8f9db5),
+                    child: text1(label:"Send 6-Digits code to your email address",colour: Color(0xff8f9db5),  fontF: 'ProductSans', wei: FontWeight.bold, size: 15,
                       ),
                     ),
                   ),
-                ),
                 //
                 SizedBox(
                   height: 20,
@@ -144,14 +117,7 @@ class Content extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   child: Padding(
                     padding: const EdgeInsets.only(left:50.0),
-                    child: Text("Send 6-Digits code to your Phone Number",
-                      style: TextStyle(
-                        fontFamily: 'ProductSans',
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xff8f9db5),
-                      ),
-                    ),
+                    child: text1(label: "Send 6-Digits code to your Phone Number",colour: Color(0xff8f9db5),fontF: 'ProductSans',wei:  FontWeight.bold,size: 15),
                   ),
                 ),
                 //
@@ -180,15 +146,8 @@ class Content extends StatelessWidget {
                         color: Color(0xff0962ff),
                       ),
                       child: Center(
-                        child: Text(
-                          "Confirm",
-                          style: TextStyle(
-                              fontFamily: 'ProductSans',
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700
-                          ),
-                        ),
+                        child:text1(label: "Confirm",colour: Colors.white,fontF: 'ProductSans',wei:  FontWeight.w700,size: 20),
+
                       ),
                     ),
                   ),
@@ -202,6 +161,28 @@ class Content extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class text1 extends StatelessWidget {
+
+  text1({@required this.label , @required this.colour, @required this.fontF,@required this.wei, @required this.size});
+
+  final String label;
+  final Color colour;
+  final String fontF;
+  final FontWeight wei;
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(label,
+      style: TextStyle(
+          color: colour,
+          fontFamily: fontF,
+          fontWeight: wei,
+          fontSize: size,
+      ),);
   }
 }
 

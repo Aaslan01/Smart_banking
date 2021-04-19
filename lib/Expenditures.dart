@@ -26,13 +26,7 @@ class _ExpenditureDataState extends State<ExpenditureData> {
         backgroundColor: Colors.white38,
         title: Padding(
           padding: const EdgeInsets.only(left:19.0),
-          child: Text('Monthly Expenditures List',
-            style: TextStyle(
-                color: Color(0xFF0C2551),
-                fontFamily: 'ProductSans',
-                fontWeight: FontWeight.bold,
-                fontSize: 25,
-            ),),
+          child: text1(label:'Monthly Expenditures List',colour:Color(0xFF0C2551),fontF:'ProductSans',size: 25),
         ),
       ),
       body: SingleChildScrollView(
@@ -47,13 +41,8 @@ class _ExpenditureDataState extends State<ExpenditureData> {
                  children: [
                    Padding(
                      padding: const EdgeInsets.only(left:10.0),
-                     child: Text('Total Expenditures',
-                         style: TextStyle(
-                             fontSize: 25,
-                             color: Color(0xff0962ff),
-                             fontWeight: FontWeight.bold,
-                             fontFamily: 'ProductSans'
-                         )),
+                     child: text1(label: 'Total Expenditures', colour: Color(0xff0962ff), fontF: 'ProductSans', wei: FontWeight.bold, size: 25)
+
                    ),
                    Padding(
                      padding: const EdgeInsets.only(right:10.0),
@@ -79,360 +68,12 @@ class _ExpenditureDataState extends State<ExpenditureData> {
                    ),
                  ],
                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.only(top:10),
-                  height: displayHeight(context)*0.15,
-                  width: displayWidth(context)*0.9,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.black12,
-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
-                    // fit: BoxFit.cover)
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                          child: Icon(
-                            Icons.home,
-                            size: 40,
-                          ),
-                      ),
-                      Expanded(
-                          flex: 2,
-                          child: Container(
-                            child: Text('House',
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontFamily: 'ProductSans',
-                              fontWeight: FontWeight.bold,
-                            ),),
-                          )),
-
-                      Expanded(
-                          flex: 2,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left:15.0),
-                            child: RichText(text: TextSpan(
-                                children: [
-                                  TextSpan(text: "Rs. ",
-                                      style: TextStyle(
-                                        fontFamily: 'ProductSans',
-                                        fontSize: 20,
-                                        color: Colors.black,
-                                      )
-                                  ),
-                                  TextSpan(text: "1,07,000",
-                                      style: TextStyle(
-                                        fontFamily: 'ProductSans',
-                                        fontSize: 23,
-                                        color: Colors.black,
-                                      )
-                                  ),
-                                ]
-                            ),
-                            ),
-                          ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.only(top:10),
-                  height: displayHeight(context)*0.15,
-                  width: displayWidth(context)*0.9,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.black12,
-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
-                    // fit: BoxFit.cover)
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Icon(
-                          Icons.shopping_bag,
-                          size: 40,
-                        ),
-                      ),
-                      Expanded(
-                          flex: 2,
-                          child: Container(
-                            child: Text('Shopping',
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontFamily: 'ProductSans',
-                                fontWeight: FontWeight.bold,
-                              ),),
-                          )),
-
-                      Expanded(
-                        flex: 2,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left:15.0),
-                          child: RichText(text: TextSpan(
-                              children: [
-                                TextSpan(text: "Rs. ",
-                                    style: TextStyle(
-                                      fontFamily: 'ProductSans',
-                                      fontSize: 20,
-                                      color: Colors.black,
-                                    )
-                                ),
-                                TextSpan(text: "22,455",
-                                    style: TextStyle(
-                                      fontFamily: 'ProductSans',
-                                      fontSize: 23,
-                                      color: Colors.black,
-                                    )
-                                ),
-                              ]
-                          ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.only(top:10),
-                  height: displayHeight(context)*0.15,
-                  width: displayWidth(context)*0.9,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.black12,
-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
-                    // fit: BoxFit.cover)
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Icon(
-                          Icons.local_grocery_store,
-                          size: 40,
-                        ),
-                      ),
-                      Expanded(
-                          flex: 2,
-                          child: Container(
-                            child: Text('Grocery',
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontFamily: 'ProductSans',
-                                fontWeight: FontWeight.bold,
-                              ),),
-                          )),
-
-                      Expanded(
-                        flex: 2,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left:15.0),
-                          child: RichText(text: TextSpan(
-                              children: [
-                                TextSpan(text: "Rs. ",
-                                    style: TextStyle(
-                                      fontFamily: 'ProductSans',
-                                      fontSize: 20,
-                                      color: Colors.black,
-                                    )
-                                ),
-                                TextSpan(text: "23,000",
-                                    style: TextStyle(
-                                      fontFamily: 'ProductSans',
-                                      fontSize: 23,
-                                      color: Colors.black,
-                                    )
-                                ),
-                              ]
-                          ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.only(top:10),
-                  height: displayHeight(context)*0.15,
-                  width: displayWidth(context)*0.9,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.black12,
-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
-                    // fit: BoxFit.cover)
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Icon(
-                          Icons.emoji_transportation,
-                          size: 40,
-                        ),
-                      ),
-                      Expanded(
-                          flex: 2,
-                          child: Container(
-                            child: Text('Transport',
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontFamily: 'ProductSans',
-                                fontWeight: FontWeight.bold,
-                              ),),
-                          )),
-
-                      Expanded(
-                        flex: 2,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left:15.0),
-                          child: RichText(text: TextSpan(
-                              children: [
-                                TextSpan(text: "Rs. ",
-                                    style: TextStyle(
-                                      fontFamily: 'ProductSans',
-                                      fontSize: 20,
-                                      color: Colors.black,
-                                    )
-                                ),
-                                TextSpan(text: "12,000",
-                                    style: TextStyle(
-                                      fontFamily: 'ProductSans',
-                                      fontSize: 23,
-                                      color: Colors.black,
-                                    )
-                                ),
-                              ]
-                          ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.only(top:10),
-                  height: displayHeight(context)*0.15,
-                  width: displayWidth(context)*0.9,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.black12,
-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
-                    // fit: BoxFit.cover)
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Icon(
-                          Icons.list_alt_outlined,
-                          size: 40,
-                        ),
-                      ),
-                      Expanded(
-                          flex: 2,
-                          child: Container(
-                            child: Text('Bills',
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontFamily: 'ProductSans',
-                                fontWeight: FontWeight.bold,
-                              ),),
-                          )),
-
-                      Expanded(
-                        flex: 2,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left:15.0),
-                          child: RichText(text: TextSpan(
-                              children: [
-                                TextSpan(text: "Rs. ",
-                                    style: TextStyle(
-                                      fontFamily: 'ProductSans',
-                                      fontSize: 20,
-                                      color: Colors.black,
-                                    )
-                                ),
-                                TextSpan(text: "97,000",
-                                    style: TextStyle(
-                                      fontFamily: 'ProductSans',
-                                      fontSize: 23,
-                                      color: Colors.black,
-                                    )
-                                ),
-                              ]
-                          ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  margin: EdgeInsets.only(top:10),
-                  height: displayHeight(context)*0.15,
-                  width: displayWidth(context)*0.9,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.black12,
-                    // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
-                    // fit: BoxFit.cover)
-                  ),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        flex: 1,
-                        child: Icon(
-                          Icons.fact_check_outlined,
-                          size: 40,
-                        ),
-                      ),
-                      Expanded(
-                          flex: 2,
-                          child: Container(
-                            child: Text('Others',
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontFamily: 'ProductSans',
-                                fontWeight: FontWeight.bold,
-                              ),),
-                          )),
-
-                      Expanded(
-                        flex: 2,
-                        child: Padding(
-                          padding: const EdgeInsets.only(right:10.0),
-                          child: RichText(text: TextSpan(
-                              children: [
-                                TextSpan(text: "Rs. ",
-                                    style: TextStyle(
-                                      fontFamily: 'ProductSans',
-                                      fontSize: 20,
-                                      color: Colors.black,
-                                    )
-                                ),
-                                TextSpan(text: "12,000",
-                                    style: TextStyle(
-                                      fontFamily: 'ProductSans',
-                                      fontSize: 23,
-                                      color: Colors.black,
-                                    )
-                                ),
-                              ]
-                          ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                ExpenditureCon(icon: Icons.home,Tlabel: "House",span2: "1,07,000",),
+                ExpenditureCon(icon:  Icons.shopping_bag,Tlabel: 'Shopping',span2: "22,455",),
+                ExpenditureCon(icon:  Icons.local_grocery_store,Tlabel: 'Grocery',span2: "23,000",),
+                ExpenditureCon(icon: Icons.emoji_transportation,Tlabel: 'Transport',span2: "12,000",),
+                ExpenditureCon(icon: Icons.list_alt_outlined,Tlabel: 'Bills',span2: "97,000",),
+                ExpenditureCon(icon:  Icons.fact_check_outlined,Tlabel: 'Others',span2: "12,000",),
               ],
             )
           ],
@@ -459,3 +100,92 @@ class _ExpenditureDataState extends State<ExpenditureData> {
   }
 }
 
+class ExpenditureCon extends StatelessWidget {
+
+  ExpenditureCon({@required this.icon,@required this.Tlabel, @required this.span2});
+  final IconData icon;
+  final String Tlabel;
+  final String span2;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(10),
+      margin: EdgeInsets.only(top:10),
+      height: displayHeight(context)*0.15,
+      width: displayWidth(context)*0.9,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.black12,
+        // image: DecorationImage(image: AssetImage('assets/images/Spotify.png'),
+        // fit: BoxFit.cover)
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 1,
+              child: Icon(
+                icon,
+                size: 40,
+              ),
+          ),
+          Expanded(
+              flex: 3,
+              child: Container(
+                child: text1(label: Tlabel, colour: null, fontF: 'ProductSans', wei: FontWeight.bold, size: 30)
+
+              )),
+
+          Expanded(
+              flex: 3,
+              child: Padding(
+                padding: const EdgeInsets.only(left:15.0),
+                child: RichText(text: TextSpan(
+                    children: [
+                      TextSpan(text: "Rs. ",
+                          style: TextStyle(
+                            fontFamily: 'ProductSans',
+                            fontSize: 20,
+                            color: Colors.black,
+                          )
+                      ),
+                      TextSpan(text: span2,
+                          style: TextStyle(
+                            fontFamily: 'ProductSans',
+                            fontSize: 23,
+                            color: Colors.black,
+                          )
+                      ),
+                    ]
+                ),
+                ),
+              ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+class text1 extends StatelessWidget {
+
+  text1({@required this.label , @required this.colour, @required this.fontF,@required this.wei, @required this.size});
+
+  final String label;
+  final Color colour;
+  final String fontF;
+  final FontWeight wei;
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(label,
+      style: TextStyle(
+        color: colour,
+        fontFamily: fontF,
+        fontWeight: wei,
+        fontSize: size,
+      ),);
+  }
+}

@@ -49,8 +49,6 @@ class _SettingDataState extends State<SettingData> {
                 buildContainer(nameSetting: 'About',
                   IconD: Icons.account_balance_outlined),
 
-
-
               ],
             )
           ],

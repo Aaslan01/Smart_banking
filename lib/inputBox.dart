@@ -77,6 +77,7 @@ class SimpleInput extends StatefulWidget {
 class _SimpleInputState extends State<SimpleInput> {
   @override
   Widget build(BuildContext context) {
+
     return Column(
       children: [
         Padding(
@@ -118,3 +119,53 @@ class _SimpleInputState extends State<SimpleInput> {
   }
 }
 
+class SimpleInputP extends StatefulWidget {
+  String inputHint;
+  SimpleInputP({this.inputHint});
+  @override
+  _SimpleInputPState createState() => _SimpleInputPState();
+}
+
+class _SimpleInputPState extends State<SimpleInputP> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(40, 0, 40, 0),
+          child: TextFormField(
+              obscureText: widget.inputHint == 'Password' ? true : false,
+              onEditingComplete: () {},
+              style: TextStyle(
+                fontSize: 19,
+                color: Color(0xff0962ff),
+                fontWeight: FontWeight.bold,
+              ),
+              decoration: InputDecoration(
+                hintText: widget.inputHint,
+                hintStyle: TextStyle(
+                  fontSize: 19,
+                  color: Colors.black38,
+                  fontWeight: FontWeight.w600,
+                ),
+                contentPadding: EdgeInsets.symmetric(vertical: 27, horizontal: 25),
+                focusColor: Color(0xff0962ff),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(27),
+                  borderSide: BorderSide(
+                    color: Color(0xff0962ff),
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(27),
+                  borderSide: BorderSide(
+                    color: Colors.grey[350],
+                  ),
+                ),
+              )
+          ),
+        ),
+      ],
+    );
+  }
+}
